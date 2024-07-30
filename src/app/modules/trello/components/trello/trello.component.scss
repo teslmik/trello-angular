@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  padding: 20px;
+}
+
+.form {
+  max-width: 100%;
+  width: 100%;
+  margin: 50px auto;
+
+  & form {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.submit {
+  margin-bottom: 22px;
+  width: 150px;
+}

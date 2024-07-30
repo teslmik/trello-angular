@@ -1,0 +1,21 @@
+<ng-container *ngIf="model$ | async as model">
+  <mat-selection-list class="block">
+    @if (!!model.assignedForMe.length) {
+      <app-trello-item
+        [tasks]="model.assignedForMe"
+        title="'Assigned for me"
+      ></app-trello-item>
+    }
+  </mat-selection-list>
+
+  <mat-divider vertical></mat-divider>
+
+  <mat-selection-list class="block">
+    @if (!!model.assignedFromMe.length) {
+      <app-trello-item
+        [tasks]="model.assignedFromMe"
+        title="'Assigned from me"
+      ></app-trello-item>
+    }
+  </mat-selection-list>
+</ng-container>

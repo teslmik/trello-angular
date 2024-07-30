@@ -1,0 +1,39 @@
+<div class="form">
+  <form [formGroup]="form" (submit)="submit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Task</mat-label>
+      <input formControlName="task" matInput placeholder="task" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Worker</mat-label>
+      <mat-select formControlName="worker">
+        @for (user of users; track user.email) {
+        <mat-option [value]="user.name">{{ user.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Choose a deadline MM/DD/YYYY</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="deadline" />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button
+      [disabled]="!form.valid"
+      mat-fab extended
+      color="primary"
+      [routerLink]="'auth/login'"
+      class="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+<app-trello-list #trelloListComponent></app-trello-list>
